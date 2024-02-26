@@ -1,0 +1,39 @@
+.main-container{
+    overflow-y: hidden;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.row img{
+    height: 10em;
+    box-shadow: 0px 2px 5px #535353;
+}
+.container button{
+    margin: 30px 10px;
+    width: 10vh;
+    height: 2.5em;
+    border-radius: 10px;
+    border: none;
+    background-color: #85d15f;
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    transition: ease-in-out 0.4s;
+}
+.container button:hover{
+    transition: ease-in-out 0.4s;
+    background-color: #6da551;
+}
+
+
+@media screen and (max-width:1200px){
+    .row img{
+        width: 50vw;
+        height: 20vw;
+    }
+    .main-container{
+        overflow-y: initial;
+    }
+}

@@ -1,0 +1,54 @@
+.main-container {
+    height: 100%;
+}
+
+.main-card {
+    border-radius: 10px;
+    width: 80vh;
+    height: 40em;
+
+}
+
+.main-card label {
+    font-weight: 600;
+}
+
+.main-card .row a {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.Not-register {
+    color: #E3A964;
+}
+
+.Forgot-password {
+    color: #5874DB;
+}
+.container .btn-login{
+    width: 150px;
+    height: 55px;
+}
+
+@media screen and (max-width:1200px) {
+    .main-card .row a {
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+        font-weight: 400;
+        font-size: 12px;
+    }
+
+    .main-card label {
+        font-size: 12px;
+    }
+
+    .container .btn-login{
+        font-size: 15px;
+        width: 12vh;
+        height: 5vh;
+    }
+}

@@ -1,0 +1,16 @@
+img{
+    object-fit: cover;
+    height: 30em;
+}
+
+
+
+
+@media screen and (max-width:1200px){
+    .CarouselMain{
+        height: 30vh;
+    }
+    .CarouselItem img{
+        height: 30vh;
+    }
+}
