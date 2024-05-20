@@ -3,6 +3,8 @@ import NavbarComponent from './components/Navbarcomponent/navbar';
 import Loginpage from './pages/loginpage/Login';
 import Register from './pages/registerpage/Register';
 import Home from './pages/homepage/Home';
+import Admin from './pages/adminpage/admin';
+import Lesson from './pages/lessonpage/lesson';
 import './App.css';
 
 const router = createBrowserRouter([
@@ -14,7 +16,13 @@ const router = createBrowserRouter([
 },
 {
   path:'/register',element:<Register/>
-}
+},
+{
+  path:'/admin',element:<Admin/>
+},
+{
+  path:'/lesson',element:<Lesson/>
+},
 ])
 
 function App() {

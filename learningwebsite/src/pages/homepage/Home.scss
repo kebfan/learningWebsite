@@ -6,13 +6,13 @@
     
 }
 
-.row img{
+.main-container .row img{
     height: 10em;
     box-shadow: 0px 2px 5px #535353;
 }
 .container button{
     margin: 30px 10px;
-    width: 10vh;
+    width: 7em;
     height: 2.5em;
     border-radius: 10px;
     border: none;
@@ -29,6 +29,14 @@
 
 
 @media screen and (max-width:1200px){
+    .welcome-text{
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+    }
     .row img{
         width: 50vw;
         height: 20vw;
