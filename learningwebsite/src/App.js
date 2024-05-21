@@ -5,6 +5,7 @@ import Register from './pages/registerpage/Register';
 import Home from './pages/homepage/Home';
 import Admin from './pages/adminpage/admin';
 import Lesson from './pages/lessonpage/lesson';
+import Unit from './pages/unitpage/unit';
 import './App.css';
 
 const router = createBrowserRouter([
@@ -22,6 +23,9 @@ const router = createBrowserRouter([
 },
 {
   path:'/lesson',element:<Lesson/>
+},
+{
+  path:'/unit',element:<Unit/>
 },
 ])
 

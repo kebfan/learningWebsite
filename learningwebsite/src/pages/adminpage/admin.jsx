@@ -294,13 +294,7 @@ const Adminpage = () => {
       </Layout>
     </>
   );
-  const router = createBrowserRouter([
-    {
-      path: "/admin",
-      element: <Adminpage />,
-      children: [{}],
-    },
-  ]);
+
 };
 
 export default Adminpage;
