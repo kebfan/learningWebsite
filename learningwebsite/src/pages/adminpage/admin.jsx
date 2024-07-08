@@ -1,28 +1,11 @@
 import React from "react";
 import { PieChart, Pie, Tooltip, ResponsiveContainer } from "recharts";
 import { useState, useEffect } from "react";
-import {
-  useNavigate,
-  RouterProvider,
-  Outlet,
-  createBrowserRouter,
-} from "react-router-dom";
-import { Layout, Button, theme } from "antd";
+import { useNavigate, } from "react-router-dom";
 import "./admin.scss";
-import MenuList from "../../components/MenuList";
-import ToggleThemeBtn from "../../components/ToggleThemeBtn";
-import {
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-  LoginOutlined,
-  LogoutOutlined,
-  UserOutlined,
-  FormOutlined,
-  SolutionOutlined
-} from "@ant-design/icons";
+import { UserOutlined, FormOutlined, SolutionOutlined } from "@ant-design/icons";
 import { ReadOutlined } from "@ant-design/icons";
-
-const { Header, Sider, Content } = Layout;
+import MainLayout from "../../layout/MainLayout";
 
 const Adminpage = () => {
   const [darkTheme, setdarkTheme] = useState(true);
@@ -104,195 +87,135 @@ const Adminpage = () => {
     );
   };
 
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
 
   return (
-    <>
-      <Layout className="Adminpage">
-        <Sider
-          collapsed={collapsed}
-          collapsible
-          trigger={null}
-          theme={darkTheme ? "dark" : "light"}
-          className="siderbar"
-        >
-          <div className="Logo">
-            <div className="background-logo">
-              <img src="Logoicon.png" alt="" srcset="" />
+    <MainLayout>
+        <div className="main-content">
+          <div class="row justify-content-center align-items-center g-2">
+            <div class="col ">
+              <div
+                className="btn-shortcut"
+                style={{ backgroundColor: "#CBEFFF" }}
+              >
+                <div
+                  className="row"
+                  style={{ height: "100%", padding: "10px" }}
+                >
+                  <div className="col-xl-4 col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
+                    <div>
+                      <ReadOutlined className="icon" />
+                    </div>
+                  </div>
+                  <div className="col-xl col-md-6 col-sm-12 d-flex align-items-center">
+                    <div className="">
+                      <p style={{ fontSize: '1rem', fontWeight: '700' }}>10 วิชา</p>
+                      <p style={{ fontSize: '1rem', fontWeight: '600' }}>วิชาที่เปิดสอนทั้งหมด</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div
+                className="btn-shortcut"
+                style={{ backgroundColor: "#BEFFB4" }}
+              >
+                <div
+                  className="row"
+                  style={{ height: "100%", padding: "10px" }}
+                >
+                  <div className="col-xl-4 col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
+                    <div>
+                      <UserOutlined className="icon" />
+                    </div>
+                  </div>
+                  <div className="col-xl col-md-6 col-sm-12 d-flex align-items-center">
+                    <div className="">
+                      <p style={{ fontSize: '1rem', fontWeight: '700' }}>10 คน</p>
+                      <p style={{ fontSize: '1rem', fontWeight: '600' }}>ผู้ใช้งานทั้งหมด</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div
+                className="btn-shortcut"
+                style={{ backgroundColor: "#FFC0C0" }}
+              >
+                <div
+                  className="row"
+                  style={{ height: "100%", padding: "10px" }}
+                >
+                  <div className="col-xl-4 col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
+                    <div>
+                      <FormOutlined className="icon" />
+                    </div>
+                  </div>
+                  <div className="col-xl col-md-6 col-sm-12 d-flex align-items-center">
+                    <div className="">
+                      <p style={{ fontSize: '1rem', fontWeight: '700' }}>10 ชุด</p>
+                      <p style={{ fontSize: '1rem', fontWeight: '600' }}>แบบทดสอบทั้งหมด</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div
+                className="btn-shortcut"
+                style={{ backgroundColor: "#FFDEB6" }}
+              >
+                <div
+                  className="row"
+                  style={{ height: "100%", padding: "10px" }}
+                >
+                  <div className="col-xl-4 col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
+                    <div>
+                      <SolutionOutlined className="icon" />
+                    </div>
+                  </div>
+                  <div className="col-xl col-md-6 col-sm-12 d-flex align-items-center">
+                    <div className="">
+                      <p style={{ fontSize: '1rem', fontWeight: '700' }}>10 ชุด</p>
+                      <p style={{ fontSize: '1rem', fontWeight: '600' }}>การบ้านทั้งหมด</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <MenuList darkTheme={darkTheme} />
-          <ToggleThemeBtn darkTheme={darkTheme} ToggleTheme={ToggleTheme} />
-        </Sider>
-        <Layout>
-          <Header style={{ padding: 0, background: colorBgContainer }}>
-            <div className="nav-1-admin">
-              <Button
-                type="text"
-                className="toggle"
-                onClick={() => setCollapsed(!collapsed)}
-                icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-              ></Button>
-            </div>
-            <div className="nav-2-admin">
-              <Button
-                type="text"
-                icon={
-                  isLogin ? (
-                    <LoginOutlined
-                      onClick={Logout}
-                      style={{ color: "green", fontSize: "20px" }}
+          <div className="sub-content">
+            <div className="row" style={{ height: '100%' }}>
+              <div className="col-xl-5 col-sm-12">
+                <ResponsiveContainer
+                  width="100%"
+                  height="100%"
+                >
+                  <PieChart width={500} height={500}>
+                    <Pie
+                      data={dataPie}
+                      dataKey="value"
+                      cx="50%"
+                      cy="50%"
+                      outerRadius={"60vw"}
+                      fill="#8884d8"
+                      labelLine={false}
+                      label={renderCustomizedLabel}
                     />
-                  ) : (
-                    <LogoutOutlined
-                      onClick={Login}
-                      style={{ color: "red", fontSize: "20px" }}
-                    />
-                  )
-                }
-              ></Button>
-            </div>
-          </Header>
-          <Content className="content">
-            <div className="main-content">
-              <div class="row justify-content-center align-items-center g-2">
-                <div class="col ">
-                  <div
-                    className="btn-shortcut"
-                    style={{ backgroundColor: "#CBEFFF" }}
-                  >
-                    <div
-                      className="row"
-                      style={{ height: "100%", padding: "10px" }}
-                    >
-                      <div className="col-xl-4 col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
-                        <div>
-                          <ReadOutlined className="icon" />
-                        </div>
-                      </div>
-                      <div className="col-xl col-md-6 col-sm-12 d-flex align-items-center">
-                        <div className="">
-                          <p style={{fontSize:'1rem',fontWeight:'700'}}>10 วิชา</p>
-                          <p style={{fontSize:'1rem',fontWeight:'600'}}>วิชาที่เปิดสอนทั้งหมด</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div
-                    className="btn-shortcut"
-                    style={{ backgroundColor: "#BEFFB4" }}
-                  >
-                    <div
-                      className="row"
-                      style={{ height: "100%", padding: "10px" }}
-                    >
-                      <div className="col-xl-4 col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
-                        <div>
-                          <UserOutlined className="icon" />
-                        </div>
-                      </div>
-                      <div className="col-xl col-md-6 col-sm-12 d-flex align-items-center">
-                        <div className="">
-                          <p style={{fontSize:'1rem',fontWeight:'700'}}>10 คน</p>
-                          <p style={{fontSize:'1rem',fontWeight:'600'}}>ผู้ใช้งานทั้งหมด</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div
-                    className="btn-shortcut"
-                    style={{ backgroundColor: "#FFC0C0" }}
-                  >
-                    <div
-                      className="row"
-                      style={{ height: "100%", padding: "10px" }}
-                    >
-                      <div className="col-xl-4 col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
-                        <div>
-                          <FormOutlined className="icon" />
-                        </div>
-                      </div>
-                      <div className="col-xl col-md-6 col-sm-12 d-flex align-items-center">
-                        <div className="">
-                          <p style={{fontSize:'1rem',fontWeight:'700'}}>10 ชุด</p>
-                          <p style={{fontSize:'1rem',fontWeight:'600'}}>แบบทดสอบทั้งหมด</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div
-                    className="btn-shortcut"
-                    style={{ backgroundColor: "#FFDEB6" }}
-                  >
-                    <div
-                      className="row"
-                      style={{ height: "100%", padding: "10px" }}
-                    >
-                      <div className="col-xl-4 col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
-                        <div>
-                          <SolutionOutlined className="icon" />
-                        </div>
-                      </div>
-                      <div className="col-xl col-md-6 col-sm-12 d-flex align-items-center">
-                        <div className="">
-                          <p style={{fontSize:'1rem',fontWeight:'700'}}>10 ชุด</p>
-                          <p style={{fontSize:'1rem',fontWeight:'600'}}>การบ้านทั้งหมด</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                    <Tooltip />
+                  </PieChart>
+                </ResponsiveContainer>
               </div>
-              <div className="sub-content">
-                <div className="row" style={{height:'100%'}}>
-                  <div className="col-xl-5 col-sm-12">
-                    <ResponsiveContainer
-                      width="100%"
-                      height="100%"
-                    >
-                      <PieChart width={500} height={500}>
-                        <Pie
-                          data={dataPie}
-                          dataKey="value"
-                          cx="50%"
-                          cy="50%"
-                          outerRadius={"60vw"}
-                          fill="#8884d8"
-                          labelLine={false}
-                          label={renderCustomizedLabel}
-                        />
-                        <Tooltip />
-                      </PieChart>
-                    </ResponsiveContainer>
-                  </div>
-                  <div className="col-xl-2 col-sm-12">
-                    {/* <div style={{ width: "100%",height:'100%', marginTop:'2rem'}}>
-                      <div className="info-pie-1">
-                        <div className="color-info-1"></div>
-                        <p className="">Teacher</p>
-                      </div>
-                      
-                      <div className="info-pie-2">
-                        <div className="color-info-2"></div>
-                        <p>Student</p>
-                      </div>
-                    </div> */}
-                  </div>
-                </div>
+              <div className="col-xl-2 col-sm-12">
+
               </div>
             </div>
-          </Content>
-        </Layout>
-      </Layout>
-    </>
+          </div>
+        </div>
+
+      
+    </MainLayout>
   );
 
 };
